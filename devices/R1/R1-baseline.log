@@ -1,0 +1,204 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2026.07.18 15:36:40 =~=~=~=~=~=~=~=~=~=~=~=
+
+Router>enable
+Router#terminal length 0
+Router#show clock
+06:04:44.911 UTC Sat Jul 18 2026
+Router#show version
+Cisco IOS Software, C1900 Software (C1900-UNIVERSALK9-M), Version 15.0(1)M6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+Compiled Wed 01-Jun-11 15:31 by prod_rel_team
+
+ROM: System Bootstrap, Version 15.0(1r)M15, RELEASE SOFTWARE (fc1)
+
+Router uptime is 8 minutes
+System returned to ROM by power-on
+System restarted at 05:55:53 UTC Sat Jul 18 2026
+System image file is "flash0:c1900-universalk9-mz.SPA.150-1.M6.bin"
+Last reload type: Normal Reload
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+Cisco CISCO1941/K9 (revision 1.0) with 475136K/49152K bytes of memory.
+Processor board ID <REDACTED>
+2 Gigabit Ethernet interfaces
+2 Serial(sync/async) interfaces
+1 Virtual Private Network (VPN) Module
+DRAM configuration is 64 bits wide with parity disabled.
+255K bytes of non-volatile configuration memory.
+250880K bytes of ATA System CompactFlash 0 (Read/Write)
+
+
+License Info:
+
+License UDI:
+
+-------------------------------------------------
+Device#	  PID			SN
+-------------------------------------------------
+*0  	  CISCO1941/K9          <REDACTED>     
+
+
+
+Technology Package License Information for Module:'c1900' 
+
+-----------------------------------------------------------------
+Technology    Technology-package           Technology-package
+              Current       Type           Next reboot  
+------------------------------------------------------------------
+ipbase        ipbasek9      Permanent      ipbasek9
+security      securityk9    Permanent      securityk9
+data          None          None           None
+
+Configuration register is 0x2102
+
+Router#show inventory
+NAME: "CISCO1941/K9 chassis", DESCR: "CISCO1941/K9 chassis"
+PID: CISCO1941/K9      , VID: V04 , SN: <REDACTED>
+
+NAME: "WAN Interface Card - HWIC Serial 1T on Slot 0 SubSlot 0", DESCR: "WAN Interface Card - HWIC Serial 1T"
+PID: HWIC-1T           , VID: V04 , SN: <REDACTED>
+
+NAME: "WAN Interface Card - HWIC Serial 1T on Slot 0 SubSlot 1", DESCR: "WAN Interface Card - HWIC Serial 1T"
+PID: HWIC-1T           , VID: V04 , SN: <REDACTED>
+
+NAME: "C1941/C2901 AC Power Supply", DESCR: "C1941/C2901 AC Power Supply"
+PID: PWR-1941-2901-AC  , VID:    , SN:            
+
+
+Router#show running-config
+Building configuration...
+
+Current configuration : 951 bytes
+!
+! No configuration change since last restart
+!
+version 15.0
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+!
+!
+!
+memory-size iomem 10
+!
+no ipv6 cef
+ip source-route
+ip cef
+!
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+license udi pid CISCO1941/K9 sn <REDACTED>
+!
+!
+!
+redundancy
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ !
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ !
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ no fair-queue
+ clock rate 2000000
+ !
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ clock rate 2000000
+ !
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+!
+!
+control-plane
+ !
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+!
+scheduler allocate 20000 1000
+end
+
+Router#show startup-config
+startup-config is not present
+Router#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0         unassigned      YES unset  administratively down down    
+GigabitEthernet0/1         unassigned      YES unset  administratively down down    
+Serial0/0/0                unassigned      YES unset  administratively down down    
+Serial0/1/0                unassigned      YES unset  administratively down down    
+Router#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+Router#dir flash:0
+Directory of flash0:/
+
+    1  -rw-    45825224  Sep 13 2011 10:58:42 +00:00  c1900-universalk9-mz.SPA.150-1.M6.bin
+
+256487424 bytes total (210661376 bytes free)
+Router#
